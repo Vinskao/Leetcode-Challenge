@@ -8,7 +8,7 @@ var sumIndicesWithKSetBits = function(nums, k) {
     function countSetBits(num) {
       let count = 0;
       while (num > 0) {
-        count += num & 1;
+        count += num & 1; //当执行 num & 1 时，它会将 num 的二进制表示和 0001进行按位与运算。
         num >>= 1;
       }
       return count;
