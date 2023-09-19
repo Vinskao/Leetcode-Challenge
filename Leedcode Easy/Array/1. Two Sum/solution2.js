@@ -3,7 +3,7 @@ var twoSum = function(nums, target) {
 
     for (let i = 0; i < nums.length; i++) {
         const complement = target - nums[i];
-        if (numIndices[complement] !== undefined) {
+        if (numIndices[complement] !== undefined) { // 從記憶體map與num[i]配對的complement
             return [numIndices[complement], i]
         } 
         
