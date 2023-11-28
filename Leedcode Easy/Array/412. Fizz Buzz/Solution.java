@@ -1,27 +1,23 @@
+import java.util.ArrayList;
 import java.util.List;
 
 class Solution {
     public List<String> fizzBuzz(int n) {
 
 
-        List<String> l= null;
+        List<String> l= new ArrayList<>();
 
-        int size = l.size();
-
-        for (int i=0; i<size; i++) {
-            if (i%3==1){
-
-            } else if (i%5==1) {
-
-            } else if (i%15==1){
-
+        for (int i=1; i<=n; i++) {
+            if ((i) % 3 == 0 && (i)%15!=0 ){
+                l.add("Fizz");
+            } else if ((i)%5==0 && (i)%15!=0) {
+                l.add("Buzz");
+            } else if ((i)%15==0){
+                l.add("FizzBuzz");
             } else {
-                
+                l.add(String.valueOf(i));
             }
         }
-
-
-
-        return null;
+        return l;
     }
 }
