@@ -1,6 +1,7 @@
 class Solution {
     public static void main(String[] args) {
         int[] prices = {10,3,40,50};
+        System.out.println(maxProfit(prices));
     }
 
     public int maxProfit(int[] prices) {
