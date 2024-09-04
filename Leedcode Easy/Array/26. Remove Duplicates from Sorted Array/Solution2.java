@@ -18,8 +18,6 @@ public class Solution2 {
                 k++;
             }
         }
-        nums = Arrays.copyOf(nums, k);
-        System.out.println(Arrays.toString(nums));
         return k;
     }
 }
