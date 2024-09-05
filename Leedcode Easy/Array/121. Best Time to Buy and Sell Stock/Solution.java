@@ -2,35 +2,27 @@ public class Solution {
 
     public static int maxProfit(int[] prices) {
         int max = 0;
-        int min = 0;
+        int min = 10000;
         int profit = 0;
+        int decreaseTimes = 0;
         for (int i = 0; i < prices.length; i++) {
             if (i > 0 && prices[i] > prices[i - 1]) {
-                if (max < prices[i]) {
-                    max = prices[i];
-                } else if (min > prices[i]) {
+                if (min >= prices[i - 1]) {
                     min = prices[i - 1];
+                    max = prices[i];
+                } else if (max <= prices[i]) {
+                    max = prices[i];
                 }
-            } else if (i == 0) {
-                max = prices[i];
-                min = prices[i];
+            } else {
+                decreaseTimes++;
             }
-            System.out.println("max" + max);
-            System.out.println("min" + min);
-        }
-
-        int indexOfMax = 0;
-        int indexOfMin = 0;
-
-        for (int i = 0; i < prices.length; i++) {
-            if (prices[i] == max) {
-                indexOfMax = i;
-            } else if (prices[i] == min) {
-                indexOfMax = i;
+            if (profit < max - min) {
+                profit = max - min;
             }
         }
-        if (indexOfMax < indexOfMin) {
-            profit = max - min;
+
+        if (decreaseTimes == prices.length) {
+            profit = 0;
         }
 
         return profit;
